@@ -38,10 +38,15 @@ messages = {
         "vip": (
             "💎 *VIP Access Plans* 💎\n\n"
             "Unlock access to exclusive VIP content:\n\n"
-            "🔹 1 Month: $4.99 → https://buy.stripe.com/7sY9ATddd3BNbs0fS26Zy00\n"
-            "🔹 3 Months: $13.99 → https://buy.stripe.com/9B65kD6OPc8j53CfS26Zy02\n"
-            "🔹 6 Months: $24.99 → https://buy.stripe.com/00w14n8WXc8jeEcfS26Zy01\n"
-            "🔹 Lifetime Access: $99 → https://buy.stripe.com/8x2eVd7STb4f0NmcFQ6Zy03"
+            "🔹 1 Month: $4.99\n"
+            "🔹 3 Months: $13.99\n"
+            "🔹 6 Months: $24.99\n"
+            "🔹 Lifetime Access: $99 (One-time payment)\n\n"
+            "👇 Choose a plan and complete the payment:\n"
+            "[1 Month Plan](https://buy.stripe.com/test_6oUeVd3Ej8eKfkKav938405)\n"
+            "[3 Months Plan](https://buy.stripe.com/test_fZu5kD7Uz66C4G67iX38404)\n"
+            "[6 Months Plan](https://buy.stripe.com/test_dRm9ATfn10Mic8y7iX38403)\n"
+            "[Lifetime Plan](https://buy.stripe.com/test_9B69AT3Ej8eKc8ydHl38400)"
         ),
         "lang_set": "✅ Language set to English."
     },
@@ -72,12 +77,17 @@ messages = {
         "vip": (
             "💎 *VIPアクセスプラン* 💎\n\n"
             "限定VIPコンテンツへのアクセスを解除：\n\n"
-            "🔹 1ヶ月：$4.99 → https://buy.stripe.com/7sY9ATddd3BNbs0fS26Zy00\n"
-            "🔹 3ヶ月：$13.99 → https://buy.stripe.com/9B65kD6OPc8j53CfS26Zy02\n"
-            "🔹 6ヶ月：$24.99 → https://buy.stripe.com/00w14n8WXc8jeEcfS26Zy01\n"
-            "🔹 永久アクセス：$99 → https://buy.stripe.com/8x2eVd7STb4f0NmcFQ6Zy03"
+            "🔹 1ヶ月：$4.99\n"
+            "🔹 3ヶ月：$13.99\n"
+            "🔹 6ヶ月：$24.99\n"
+            "🔹 永久アクセス：$99（買い切り）\n\n"
+            "👇 プランを選んで決済してください：\n"
+            "[1ヶ月プラン](https://buy.stripe.com/test_6oUeVd3Ej8eKfkKav938405)\n"
+            "[3ヶ月プラン](https://buy.stripe.com/test_fZu5kD7Uz66C4G67iX38404)\n"
+            "[6ヶ月プラン](https://buy.stripe.com/test_dRm9ATfn10Mic8y7iX38403)\n"
+            "[永久プラン](https://buy.stripe.com/test_9B69AT3Ej8eKc8ydHl38400)"
         ),
-        "lang_set": "✅ 言語が日本語に設定されました。"
+        "lang_set": "✅ 言語が日本語に設定されました"
     },
     "th": {
         "start": (
@@ -106,10 +116,15 @@ messages = {
         "vip": (
             "💫 *แผนการเข้าถึง VIP* 💫\n\n"
             "ปลดล็อกการเข้าถึงวิดีโอ VIP สุดพิเศษ:\n\n"
-            "🔹 1 เดือน: $4.99 → https://buy.stripe.com/7sY9ATddd3BNbs0fS26Zy00\n"
-            "🔹 3 เดือน: $13.99 → https://buy.stripe.com/9B65kD6OPc8j53CfS26Zy02\n"
-            "🔹 6 เดือน: $24.99 → https://buy.stripe.com/00w14n8WXc8jeEcfS26Zy01\n"
-            "🔹 เข้าถึงตลอดชีพ: $99 → https://buy.stripe.com/8x2eVd7STb4f0NmcFQ6Zy03"
+            "🔹 1 เดือน: $4.99\n"
+            "🔹 3 เดือน: $13.99\n"
+            "🔹 6 เดือน: $24.99\n"
+            "🔹 เข้าถึงตลอดชีพ: $99 (ชำระครั้งเดียว)\n\n"
+            "👇 เลือกแผนและชำระเงิน:\n"
+            "[แผน 1 เดือน](https://buy.stripe.com/test_6oUeVd3Ej8eKfkKav938405)\n"
+            "[แผน 3 เดือน](https://buy.stripe.com/test_fZu5kD7Uz66C4G67iX38404)\n"
+            "[แผน 6 เดือน](https://buy.stripe.com/test_dRm9ATfn10Mic8y7iX38403)\n"
+            "[แผนตลอดชีพ](https://buy.stripe.com/test_9B69AT3Ej8eKc8ydHl38400)"
         ),
         "lang_set": "✅ ตั้งค่าภาษาเป็นภาษาไทยแล้ว"
     }
