@@ -4,7 +4,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import os
 
 # Herokuなどの環境変数からトークンを取得
-TOKEN = os.getenv("TELEGRAM_TOKEN")
+TOKEN = os.getenv("8122823996:AAE15VaXUUtcutKGxI7T8cUX6hlb7GsrDf0")
 
 # /start コマンドの処理
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
