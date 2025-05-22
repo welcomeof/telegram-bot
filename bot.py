@@ -2,11 +2,9 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import os
 from dotenv import load_dotenv
-import stripe
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
-stripe.api_key = os.getenv("STRIPE_SECRET")
 
 # ユーザーごとの言語設定を保持（簡易的にメモリ保持）
 user_languages = {}
@@ -40,20 +38,81 @@ messages = {
         "vip": (
             "💎 *VIP Access Plans* 💎\n\n"
             "Unlock access to exclusive VIP content:\n\n"
-            "🔹 1 Month: $4.99\n"
-            "🔹 3 Months: $13.99\n"
-            "🔹 6 Months: $24.99\n"
-            "🔹 Lifetime Access: $99 (One-time payment)\n\n"
-            "👇 Choose a plan and complete the payment:\n"
-            "[1 Month Plan](https://buy.stripe.com/test_6oUeVd3Ej8eKfkKav938405)\n"
-            "[3 Months Plan](https://buy.stripe.com/test_fZu5kD7Uz66C4G67iX38404)\n"
-            "[6 Months Plan](https://buy.stripe.com/test_dRm9ATfn10Mic8y7iX38403)\n"
-            "[Lifetime Plan](https://buy.stripe.com/test_9B69AT3Ej8eKc8ydHl38400)"
+            "🔹 1 Month: $4.99 → https://buy.stripe.com/7sY9ATddd3BNbs0fS26Zy00\n"
+            "🔹 3 Months: $13.99 → https://buy.stripe.com/9B65kD6OPc8j53CfS26Zy02\n"
+            "🔹 6 Months: $24.99 → https://buy.stripe.com/00w14n8WXc8jeEcfS26Zy01\n"
+            "🔹 Lifetime Access: $99 → https://buy.stripe.com/8x2eVd7STb4f0NmcFQ6Zy03"
         ),
         "lang_set": "✅ Language set to English."
     },
-    "ja": {...},  # 省略（同じ）
-    "th": {...}   # 省略（同じ）
+    "ja": {
+        "start": (
+            "👋 ようこそ！\n\n"
+            "このアカウントでは、世界各国の特別な動画コンテンツを無料でご覧いただけます🌍\n"
+            "リアルな映像をすぐ体験してください！\n\n"
+            "言語を変更 ➡️\n"
+            "➡️English🇺🇸/langEG\n"
+            "➡️日本語🇯🇵/langJP\n"
+            "➡️ประเทศไทย🇹🇭/langTH\n"
+            "VIPはこちら ➡️ /vip\n\n"
+            "👇 お好きな国を選んでチェック：\n\n"
+            "🌏 世界の動画：https://t.me/+A_k5WIBrwlNhMTE9\n"
+            "🇹🇭 タイの動画：https://t.me/+fz1MxCOAzrsyZmJl\n"
+            "🇯🇵 日本の動画：https://t.me/+WSC5-RAM1Yo4MDM1\n"
+            "🇨🇳 中国の動画：https://t.me/+tZVW2pFqG2djODU1\n"
+            "🇰🇷 韓国の動画：近日公開予定"
+        ),
+        "help": (
+            "🛠 Botの使い方：\n\n"
+            "/start - 最初の案内メッセージ\n"
+            "/help - このヘルプを表示します\n"
+            "/vip - VIPプランと支払いリンク\n"
+            "/langEG /langJP /langTH - 言語を変更"
+        ),
+        "vip": (
+            "💎 *VIPアクセスプラン* 💎\n\n"
+            "限定VIPコンテンツへのアクセスを解除：\n\n"
+            "🔹 1ヶ月：$4.99 → https://buy.stripe.com/7sY9ATddd3BNbs0fS26Zy00\n"
+            "🔹 3ヶ月：$13.99 → https://buy.stripe.com/9B65kD6OPc8j53CfS26Zy02\n"
+            "🔹 6ヶ月：$24.99 → https://buy.stripe.com/00w14n8WXc8jeEcfS26Zy01\n"
+            "🔹 永久アクセス：$99 → https://buy.stripe.com/8x2eVd7STb4f0NmcFQ6Zy03"
+        ),
+        "lang_set": "✅ 言語が日本語に設定されました。"
+    },
+    "th": {
+        "start": (
+            "👋 ยินดีต้อนรับ!\n\n"
+            "บัญชีนี้ให้คุณรับชมวิดีโอสุดพิเศษจากทั่วโลกได้ฟรี 🌍\n"
+            "รับชมภาพจริงแบบเรียลไทม์ได้ทันที!\n\n"
+            "เปลี่ยนภาษา ➡️ \n"
+            "➡️English🇺🇸/langEG\n"
+            "➡️日本語🇯🇵/langJP\n"
+            "➡️ประเทศไทย🇹🇭/langTH\n"
+            "สำหรับ VIP ➡️ /vip\n\n"
+            "👇 เลือกประเทศที่คุณสนใจ:\n\n"
+            "🌏 วิดีโอทั่วโลก: https://t.me/+A_k5WIBrwlNhMTE9\n"
+            "🇹🇭 วิดีโอประเทศไทย: https://t.me/+fz1MxCOAzrsyZmJl\n"
+            "🇯🇵 วิดีโอญี่ปุ่น: https://t.me/+WSC5-RAM1Yo4MDM1\n"
+            "🇨🇳 วิดีโอประเทศจีน: https://t.me/+tZVW2pFqG2djODU1\n"
+            "🇰🇷 วิดีโอเกาหลี: เร็วๆ นี้"
+        ),
+        "help": (
+            "🛠 วิธีใช้งานบอท:\n\n"
+            "/start - แสดงข้อความต้อนรับ\n"
+            "/help - แสดงคู่มือการใช้งาน\n"
+            "/vip - แสดงแผน VIP และลิงก์ชำระเงิน\n"
+            "/langEG /langJP /langTH - เปลี่ยนภาษา"
+        ),
+        "vip": (
+            "💫 *แผนการเข้าถึง VIP* 💫\n\n"
+            "ปลดล็อกการเข้าถึงวิดีโอ VIP สุดพิเศษ:\n\n"
+            "🔹 1 เดือน: $4.99 → https://buy.stripe.com/7sY9ATddd3BNbs0fS26Zy00\n"
+            "🔹 3 เดือน: $13.99 → https://buy.stripe.com/9B65kD6OPc8j53CfS26Zy02\n"
+            "🔹 6 เดือน: $24.99 → https://buy.stripe.com/00w14n8WXc8jeEcfS26Zy01\n"
+            "🔹 เข้าถึงตลอดชีพ: $99 → https://buy.stripe.com/8x2eVd7STb4f0NmcFQ6Zy03"
+        ),
+        "lang_set": "✅ ตั้งค่าภาษาเป็นภาษาไทยแล้ว"
+    }
 }
 
 def get_lang(user_id):
@@ -81,23 +140,8 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(messages[lang]["help"])
 
 async def vip(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    try:
-        telegram_id = update.effective_chat.id
-        session = stripe.checkout.Session.create(
-            payment_method_types=["card"],
-            mode="payment",
-            line_items=[{
-                "price": "price_XXXXXXXXXXXX",  # ← あなたの価格IDに置き換えてください
-                "quantity": 1,
-            }],
-            metadata={"telegram_id": str(telegram_id)},
-            success_url="https://example.com/success",
-            cancel_url="https://example.com/cancel",
-        )
-        await update.message.reply_text(f"💳 Please complete payment:\n{session.url}")
-    except Exception as e:
-        await update.message.reply_text("❌ Failed to create Stripe session.")
-        print(e)
+    lang = get_lang(update.effective_user.id)
+    await update.message.reply_text(messages[lang]["vip"], parse_mode="Markdown")
 
 if __name__ == '__main__':
     app = ApplicationBuilder().token(TOKEN).build()
