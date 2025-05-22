@@ -88,7 +88,7 @@ async def create_checkout(update: Update, context: ContextTypes.DEFAULT_TYPE, pe
 
         session = stripe.checkout.Session.create(
             payment_method_types=["card"],
-            mode="payment",
+            mode="subscription",
             line_items=[{
                 "price": price_id,
                 "quantity": 1,
