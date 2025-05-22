@@ -59,36 +59,15 @@ messages = {
             "[Lifetime Plan](https://buy.stripe.com/test_9B69AT3Ej8eKc8ydHl38400)"
         ),
         "lang_set": "✅ Language set to English."
-    },
-    "ja": {
-        "start": "...（省略）",
-        "help": "...",
-        "vip": "...",
-        "lang_set": "✅ 言語が日本語に設定されました"
-    },
-    "th": {
-        "start": "...（省略）",
-        "help": "...",
-        "vip": "...",
-        "lang_set": "✅ ตั้งค่ภาษาเป็นภาษาไทยแล้ว"
     }
 }
 
 def get_lang(user_id):
     return user_languages.get(user_id, "en")
 
-# 言語切替コマンド
 async def lang_eg(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_languages[update.effective_user.id] = "en"
     await update.message.reply_text(messages["en"]["lang_set"])
-
-async def lang_jp(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_languages[update.effective_user.id] = "ja"
-    await update.message.reply_text(messages["ja"]["lang_set"])
-
-async def lang_th(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_languages[update.effective_user.id] = "th"
-    await update.message.reply_text(messages["th"]["lang_set"])
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lang = get_lang(update.effective_user.id)
@@ -102,7 +81,6 @@ async def vip(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lang = get_lang(update.effective_user.id)
     await update.message.reply_text(messages[lang]["vip"], parse_mode="Markdown")
 
-# Stripe セッション作成共通関数
 async def create_checkout(update: Update, context: ContextTypes.DEFAULT_TYPE, period: str):
     try:
         chat_id = update.effective_chat.id
@@ -147,6 +125,4 @@ if __name__ == '__main__':
     app.add_handler(CommandHandler("vip6", vip6))
     app.add_handler(CommandHandler("vip99", vip99))
     app.add_handler(CommandHandler("langEG", lang_eg))
-    app.add_handler(CommandHandler("langJP", lang_jp))
-    app.add_handler(CommandHandler("langTH", lang_th))
     app.run_polling()
